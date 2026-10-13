@@ -7,12 +7,14 @@ p {
   color: rgb(245, 219, 243);
   margin-left: 20px;
   text-decoration: none;
+  font-family: "Sans serif", "Tahoma", monospace;
 
 }
 h2 {
   color: rgb(245, 219, 243);
   margin-left: 20px;
   text-decoration: none;
+  font-family: "Sans serif", "Tahoma", monospace;
 
 }
 
@@ -79,6 +81,7 @@ a.image-button img {
     flex-direction: row;
     align-items: center;
     gap: 20px;
+    text-align: center;
 
     width: 80%;
     max-width: 800px;
@@ -129,10 +132,11 @@ a.image-button img {
         object-fit: cover;
     }
 
-    .game-info {
+    .game-info h2 {
         width: 100%;
         min-width: 0;
         overflow-wrap: anywhere;
+        text-align: center;
     }
 
     .game-info p {
