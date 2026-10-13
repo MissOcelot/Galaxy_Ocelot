@@ -4,13 +4,22 @@ body {
 
 
 p {
-  color: rgb(0, 0, 0);
+  color: rgb(245, 219, 243);
+  margin-left: 20px;
+  text-decoration: none;
+
+}
+h2 {
+  color: rgb(245, 219, 243);
   margin-left: 20px;
   text-decoration: none;
 
 }
 
 .game-info p {
+    margin-left: 0;
+}
+.game-info h2 {
     margin-left: 0;
 }
 
@@ -102,4 +111,31 @@ a.image-button img {
     margin-top: 0;
     text-decoration: none;
 
+}
+
+@media (max-width: 600px) {
+    .game-card {
+        flex-direction: column;
+        width: 90%;
+        gap: 12px;
+        padding: 12px;
+    }
+
+    .game-card img {
+        width: 100%;
+        max-width: 300px;
+        height: auto;
+        aspect-ratio: 3 / 2;
+        object-fit: cover;
+    }
+
+    .game-info {
+        width: 100%;
+        min-width: 0;
+        overflow-wrap: anywhere;
+    }
+
+    .game-info p {
+        margin-left: 0;
+    }
 }
