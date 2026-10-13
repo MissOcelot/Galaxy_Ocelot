@@ -6,6 +6,12 @@ body {
 p {
   color: rgb(0, 0, 0);
   margin-left: 20px;
+  text-decoration: none;
+
+}
+
+.game-info p {
+    margin-left: 0;
 }
 
 .header-container {
@@ -65,13 +71,16 @@ a.image-button img {
     align-items: center;
     gap: 20px;
 
-    padding: 15px;
-    margin: 20px;
+    width: 80%;
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
 
-    background-color: #e8d4f5;
-    border: 2px solid #6921ad;
+    background-color:#5d2591;
+    border: 3px solid #3f1764;
     border-radius: 15px;
-
+    box-sizing: border-box;
+    padding: 10px;
     text-decoration: none;
     color: inherit;
 }
@@ -91,4 +100,6 @@ a.image-button img {
 
 .game-info h2 {
     margin-top: 0;
+    text-decoration: none;
+
 }

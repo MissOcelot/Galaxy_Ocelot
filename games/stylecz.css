@@ -52,3 +52,10 @@ a.image-button img {
   height: 75px;
   object-fit: contain;
 }
+
+main {
+    display: flex;
+    justify-content: center; 
+    align-items: center;    
+    min-height: 80vh;
+}
