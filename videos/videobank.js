@@ -13,3 +13,33 @@ const videos = [
         thumbnail: "thumbnails/maxjax1.jpg"
     }
 ];
+
+const videoGrid = document.getElementById("video-grid");
+const mainVideo = document.getElementById("main-video");
+const videoTitle = document.getElementById("video-title");
+
+videos.forEach(function(video) {
+    const button = document.createElement("button");
+    button.className = "video-choice";
+    button.type = "button";
+
+    const image = document.createElement("img");
+    image.src = video.thumbnail;
+    image.alt = "";
+
+    const label = document.createElement("span");
+    label.textContent = video.title;
+
+    button.appendChild(image);
+    button.appendChild(label);
+
+    button.addEventListener("click", function() {
+        mainVideo.src = video.src;
+        mainVideo.load();
+        mainVideo.play();
+
+        videoTitle.textContent = video.title;
+    });
+
+    videoGrid.appendChild(button);
+});

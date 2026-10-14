@@ -23,17 +23,37 @@
             <a href="../Music/music.html" class="text-button">Music</a>
             <a href="../quizzes/index.html" class="text-button">Quizzes</a>
             <a href="../polls/index.html" class="text-button">Polls</a>
-            <a href="../Research portfolio/index.hmtl" class="text-button">Research Portfolio</a>
+            <a href="../Research portfolio/index.html" class="text-button">Research Portfolio</a>
             <a href="../Archive sites/archive.html" class="text-button">Archive Sites</a>
             <a href="../about/about.html" class="text-button">About</a>
         </nav>
         </div>
     </header>
+ <main class="videos-page">
+        <h1 class="videos-heading">Galaxy Video Zone</h1>
 
-    <aside class="video-list">
-    <div id="video-grid" class="video-grid"></div>
-    </aside>
+        <div class="video-layout">
 
+            <!-- Main video player -->
+            <section class="video-player-panel">
+                <video id="main-video" controls>
+                    <source src="videos/Himaybell.mp4" type="video/mp4">
+                    Your browser does not support HTML video.
+                </video>
+                <h2 id="video-title">Himaybell</h2>
+            </section>
 
+            <!-- Scrollable video playlist -->
+            <aside class="video-list">
+                <h2>Choose a Video!</h2>
+                <div id="video-grid" class="video-grid">
+                    <!-- JavaScript adds thumbnail buttons here -->
+                </div>
+            </aside>
+
+        </div>
+    </main>
+
+    <script src="videobank.js"></script>
 </body>
 </html>
