@@ -19,6 +19,7 @@ const mainVideo = document.getElementById("main-video");
 const videoTitle = document.getElementById("video-title");
 
 mainVideo.src = videos[0].src;
+videoTitle.textContent = videos[0].title;
 
 videos.forEach(function(video) {
     const button = document.createElement("button");
