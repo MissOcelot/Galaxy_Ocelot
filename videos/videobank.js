@@ -5,18 +5,20 @@ const videos = [
     {
         title: "Hi Maybell!",
         src: "videos/Himaybell.mp4",
-        thumbnail: "thumbnails/may1.jpg"
+        thumbnail: "Thumbnails/may1.jpg"
     },
     {
         title: "Max meets Jax",
         src: "videos/Maxmeetsjax.mp4",
-        thumbnail: "thumbnails/maxjax1.jpg"
+        thumbnail: "Thumbnails/maxjax1.jpg"
     }
 ];
 
 const videoGrid = document.getElementById("video-grid");
 const mainVideo = document.getElementById("main-video");
 const videoTitle = document.getElementById("video-title");
+
+mainVideo.src = videos[0].src;
 
 videos.forEach(function(video) {
     const button = document.createElement("button");
