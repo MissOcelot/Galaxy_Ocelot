@@ -147,6 +147,60 @@ a.image-button img {
   background-color:rgb(151, 94, 189);
 }
 
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.video-choice {
+    appearance: none;
+    -webkit-appearance: none;
+    display: block;
+    width: 100%;
+    min-width: 0;
+    padding: 0;
+    margin: 0;
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+.video-choice img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    border: 1px solid #3f1764;
+    border-radius: 6px;
+    background: #000;
+    box-shadow: none;
+}
+
+.video-choice span {
+    display: block;
+    margin-top: 6px;
+    text-align: center;
+    font-family: Tahoma, sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    color: rgb(245, 219, 243);
+}
+
+.video-choice:hover {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+}
+
+
+
 @media (max-width: 750px) {
     .video-layout {
         grid-template-columns: minmax(0, 1fr);
