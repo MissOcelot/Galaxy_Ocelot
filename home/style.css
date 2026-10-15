@@ -71,7 +71,7 @@ button {
   font-size: 16px;
   color: rgb(245, 219, 243);
   box-shadow: 0 4px 6px 0 rgb(57, 17, 95);
-  align-self: center;
+  align-items: right;
 }
 
 button:hover {

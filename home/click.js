@@ -1,5 +1,9 @@
 
-const clickSound = new Audio("clickk.mp3");
+const scriptUrl = document.currentScript.src;
+const scriptFolder = new URL(".", scriptUrl);
+const clickSound = new Audio(
+    new URL("clickk.mp3", scriptFolder).href
+);
 
 document.addEventListener("click", function(event) {
     const clickable = event.target.closest(
@@ -8,7 +12,6 @@ document.addEventListener("click", function(event) {
 
     if (!clickable) return;
 
-    // Let modified clicks behave normally (Ctrl-click, new tab, etc.).
     const isNormalLinkClick =
         clickable.matches("a") &&
         event.button === 0 &&
@@ -21,17 +24,16 @@ document.addEventListener("click", function(event) {
     if (isNormalLinkClick) {
         event.preventDefault();
 
-        clickSound.currentTime = 0.05;
+        clickSound.currentTime = 0.06;
         clickSound.play().catch(() => {});
 
         const destination = clickable.href;
 
-        // Give the sound a moment to start before navigating.
         setTimeout(function() {
             window.location.href = destination;
         }, 150);
     } else {
-        clickSound.currentTime = 0.05;
+        clickSound.currentTime = 0.06;
         clickSound.play().catch(() => {});
     }
 });
