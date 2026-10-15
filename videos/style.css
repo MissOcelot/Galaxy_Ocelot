@@ -254,6 +254,25 @@ a.image-button img {
     transform: scale(0.95);
 }
 
+button {
+  font-family: "Sans serif", "Tahoma", monospace;
+  border: 1px solid;
+  border-radius: 12px;
+  border-color: #3f1764;
+  background-color: #6921ad;
+  padding: 10px;
+  text-decoration: none;
+  font-size: 16px;
+  color: rgb(245, 219, 243);
+  box-shadow: 0 4px 6px 0 rgb(57, 17, 95);
+  align-self: center;
+}
+
+button:hover {
+  background-color: #5d2591;
+  color: rgb(255, 255, 255);
+}
+
 @media (max-width: 750px) {
     .video-layout {
         grid-template-columns: minmax(0, 1fr);
