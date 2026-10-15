@@ -259,20 +259,8 @@ a.image-button img {
         grid-template-columns: minmax(0, 1fr);
     }
 
-    .video-list {
-        max-height: 320px;
-    }
-    .video-title-bar button {
-    appearance: none;
-    padding: 0;
-    border: none;
-    background: transparent;
-    cursor: pointer;
-}
-
-.video-title-bar button img {
-    object-fit: contain;
-    border: none;
-    background: transparent;
+.video-player-panel video {
+    aspect-ratio: 9 / 16;
+     width: 80%;
 }
 }
