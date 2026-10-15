@@ -38,11 +38,34 @@ videos.forEach(function(video) {
 
     button.addEventListener("click", function() {
         mainVideo.src = video.src;
+        currentVideoIndex = videos.indexOf(video);
         mainVideo.load();
         mainVideo.play();
 
         videoTitle.textContent = video.title;
     });
+
+
+    let currentVideoIndex = 0;
+
+function playVideo(index) {
+    // Wrap around if we go past either end
+    currentVideoIndex = (index + videos.length) % videos.length;
+
+    const video = videos[currentVideoIndex];
+
+    mainVideo.src = video.src;
+    mainVideo.load();
+    videoTitle.textContent = video.title;
+}
+
+document.getElementById("prev-video").addEventListener("click", function() {
+    playVideo(currentVideoIndex - 1);
+});
+
+document.getElementById("next-video").addEventListener("click", function() {
+    playVideo(currentVideoIndex + 1);
+});
 
     videoGrid.appendChild(button);
 });

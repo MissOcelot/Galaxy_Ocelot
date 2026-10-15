@@ -29,6 +29,12 @@
         </nav>
         </div>
     </header>
+
+    <button id="music-toggle" type="button">♫ Play music</button>
+<audio id="background-music" loop>
+    <source src="../home/lotus.mp3" type="audio/mpeg">
+</audio>
+
  <main class="videos-page">
 
         <div class="video-layout">
@@ -38,7 +44,15 @@
                 <video id="main-video" controls>
                 Your browser does not support HTML video! Sorry!
                 </video>
-                <h2 id="video-title">Himaybell</h2>
+
+                <div class="video-title-bar">
+    <button id="prev-video" type="button" aria-label="Previous video"><img src="previous.png"> </button>
+
+    <h2 id="video-title">Hi Maybell!</h2>
+
+    <button id="next-video" type="button" aria-label="Next video"><img src="next.png"></button>
+                </div>
+
             </section>
 
             
@@ -52,5 +66,9 @@
     </main>
 
     <script src="videobank.js"></script>
+
+
+
+    <script src="../home/click.js"></script>
 </body>
 </html>

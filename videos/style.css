@@ -120,6 +120,10 @@ a.image-button img {
     max-height: 75vh;
     overflow-y: auto;
     box-sizing: border-box;
+    padding: 10px;
+    border: 1px solid #5d2591;
+    border-radius: 16px;
+    background-color:#d46fdd;
     
 }
 
@@ -138,14 +142,10 @@ a.image-button img {
     font-family: "Sans serif", "Tahoma", monospace;
     font-size: 12px;
     font-weight: bold;
-    color:rgb(245, 219, 243);
+    color:rgb(0,0,0);
 }
 
-.video-list:hover {
-  color:rgb(255, 255, 255);
-  border-color: #39125e;
-  background-color:rgb(151, 94, 189);
-}
+
 
 .video-grid {
     display: grid;
@@ -163,7 +163,8 @@ a.image-button img {
     margin: 0;
     border: none;
     border-radius: 0;
-    background: transparent;
+    outline: none;
+    background-color: transparent;
     box-shadow: none;
     color: inherit;
     cursor: pointer;
@@ -178,10 +179,15 @@ a.image-button img {
     padding: 0;
     margin: 0;
     border: 1px solid #3f1764;
-    border-radius: 6px;
-    background: #000;
+    border-radius: 12px;
+    background:#a121ad;
     box-shadow: none;
 }
+.video-choice:hover img {
+    border-color: #39125e;
+    box-shadow: 0 0 6px #6921ad;
+}
+
 
 .video-choice span {
     display: block;
@@ -190,7 +196,7 @@ a.image-button img {
     font-family: Tahoma, sans-serif;
     font-size: 18px;
     font-weight: bold;
-    color: rgb(245, 219, 243);
+    color:#5d2591;
 }
 
 .video-choice:hover {
@@ -199,7 +205,54 @@ a.image-button img {
     box-shadow: none;
 }
 
+.video-choice:hover span {
+    color: #3f1764;
+    text-shadow: 0 0 6px #a121ad;
+}
 
+
+.video-title-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 12px;
+}
+
+.video-title-bar h2 {
+    flex: 1;
+    min-width: 0;
+    margin: 0;
+    text-align: center;
+    overflow-wrap: anywhere;
+}
+
+.video-title-bar button {
+    flex-shrink: 0;
+    padding: 0;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+.video-title-bar button img {
+    display: block;
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    border: none;
+    padding: 0;
+    background: transparent;
+}
+
+.video-title-bar button:hover img {
+  filter: drop-shadow(0 0 6px #3f1764); 
+}
+
+.video-title-bar button:active img {
+    filter: brightness(0.8) drop-shadow(0 0 4px #3f1764);
+    transform: scale(0.95);
+}
 
 @media (max-width: 750px) {
     .video-layout {
