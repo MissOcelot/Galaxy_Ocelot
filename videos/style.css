@@ -93,6 +93,16 @@ a.image-button img {
     min-width: 0;
     padding: 16px;
     box-sizing: border-box;
+    border: 1px solid;
+    border-radius: 12px;
+    border-color: #3f1764;
+    background-color: #6921ad;
+    padding: 10px;
+    text-decoration: none;
+    font-size: 16px;
+    font-family: "Sans serif", "Tahoma", monospace;
+    color: rgb(245, 219, 243);
+    box-shadow: 0 4px 6px 0 rgb(57, 17, 95);
 }
 
 .video-player-panel video {
@@ -108,8 +118,17 @@ a.image-button img {
     min-width: 0;
     max-height: 75vh;
     overflow-y: auto;
-    padding: 12px;
     box-sizing: border-box;
+    border: 1px solid;
+    border-radius: 6px;
+    border-color: #3f1764;
+    background-color: #6921ad;
+    padding: 10px;
+    text-decoration: none;
+    font-family: "Sans serif", "Tahoma", monospace;
+    color: rgb(245, 219, 243);
+    box-shadow: 0 4px 6px 0 rgb(57, 17, 95);
+    
 }
 
 .video-grid {
