@@ -68,17 +68,17 @@ a.image-button img {
     width: 100%;
     aspect-ratio: 16 / 9;
     object-fit: cover;
-    background-color: #000;
-    border-radius: 7px;
+    box-sizing: border-box;
+    border: 1px solid #3f1764;
+    border-radius: 6px;
+    background-color:#a121ad;
+    padding: 0;
+    box-shadow: none;
 }
 
 .video-list span {
     overflow-wrap: anywhere;
 }
-
-
-
-
 
 
 .video-layout {
@@ -107,8 +107,9 @@ a.image-button img {
 
 .video-player-panel video {
     display: block;
-    width: 100%;
+    width: 90%;
     height: auto;
+    margin: 0 auto;
     aspect-ratio: 16 / 9;
     object-fit: contain;
     background-color: black;
@@ -131,26 +132,11 @@ a.image-button img {
     box-shadow: none;
 }
 
-.video-list img {
-    display: block;
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    object-fit: cover;
-    border: 1px solid;
-    border-radius: 6px;
-    border-color: #3f1764;
-    background-color:rgb(180, 112, 224);
-    padding: 10px;
-    text-decoration: none;
-    font-family: "Sans serif", "Tahoma", monospace;
-    text-align: center;
-    color: rgb(245, 219, 243);
-    box-shadow: 0 4px 6px 0 rgb(57, 17, 95);
-}
+
 
 .video-list span {
     font-family: "Sans serif", "Tahoma", monospace;
-    font-size: 18px;
+    font-size: 12px;
     font-weight: bold;
     color:rgb(245, 219, 243);
 }
