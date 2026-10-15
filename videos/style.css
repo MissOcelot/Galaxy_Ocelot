@@ -262,4 +262,17 @@ a.image-button img {
     .video-list {
         max-height: 320px;
     }
+    .video-title-bar button {
+    appearance: none;
+    padding: 0;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+.video-title-bar button img {
+    object-fit: contain;
+    border: none;
+    background: transparent;
+}
 }
