@@ -94,9 +94,9 @@ a.image-button img {
     padding: 16px;
     box-sizing: border-box;
     border: 1px solid;
-    border-radius: 12px;
+    border-radius: 16px;
     border-color: #3f1764;
-    background-color: #6921ad;
+    background-color: #a121ad;
     padding: 10px;
     text-decoration: none;
     font-size: 16px;
@@ -119,15 +119,6 @@ a.image-button img {
     max-height: 75vh;
     overflow-y: auto;
     box-sizing: border-box;
-    border: 1px solid;
-    border-radius: 6px;
-    border-color: #3f1764;
-    background-color: #6921ad;
-    padding: 10px;
-    text-decoration: none;
-    font-family: "Sans serif", "Tahoma", monospace;
-    color: rgb(245, 219, 243);
-    box-shadow: 0 4px 6px 0 rgb(57, 17, 95);
     
 }
 
@@ -135,6 +126,9 @@ a.image-button img {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 10px;
+    background: transparent;
+    border: none;
+    box-shadow: none;
 }
 
 .video-list img {
@@ -142,6 +136,29 @@ a.image-button img {
     width: 100%;
     aspect-ratio: 16 / 9;
     object-fit: cover;
+    border: 1px solid;
+    border-radius: 6px;
+    border-color: #3f1764;
+    background-color:rgb(180, 112, 224);
+    padding: 10px;
+    text-decoration: none;
+    font-family: "Sans serif", "Tahoma", monospace;
+    text-align: center;
+    color: rgb(245, 219, 243);
+    box-shadow: 0 4px 6px 0 rgb(57, 17, 95);
+}
+
+.video-list span {
+    font-family: "Sans serif", "Tahoma", monospace;
+    font-size: 18px;
+    font-weight: bold;
+    color:rgb(245, 219, 243);
+}
+
+.video-list:hover {
+  color:rgb(255, 255, 255);
+  border-color: #39125e;
+  background-color:rgb(151, 94, 189);
 }
 
 @media (max-width: 750px) {
