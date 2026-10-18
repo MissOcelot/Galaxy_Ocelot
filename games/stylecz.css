@@ -66,5 +66,18 @@ main {
     max-width: 100%;
     aspect-ratio: 4 / 3;
     height: auto;
-    border: none;
+    border: 1px solid;
+    border-radius: 12px;
+    border-color: #3f1764;
+    background-color: #6921ad;
+    padding: 10px;
+}
+
+@media (max-width: 750px) {
+  .scratch{
+    width: 650px;
+    max-width: 100%;
+    aspect-ratio: 3 / 4;
+    height: auto;
+  }
 }

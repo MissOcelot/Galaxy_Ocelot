@@ -7,7 +7,7 @@ const clickSound = new Audio(
 
 document.addEventListener("click", function(event) {
     const clickable = event.target.closest(
-        "button, a.text-button, a.image-button"
+        "button, a.text-button, a.image-button, .game-card"
     );
 
     if (!clickable) return;
