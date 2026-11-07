@@ -658,4 +658,31 @@ a.button2:hover {
     background-repeat: no-repeat;
     bottom: 5px;
 }
-@media (max-width: 600px) {}
+@media (max-width: 600px) {
+    #options button {
+     width: 150px;
+    height: 100px;
+    font-size: 20px;
+    font-family: Tahoma, sans-serif;
+    color:#3f1764
+}
+
+#options button:hover {
+      filter: hue-rotate(350deg);
+    font-family: Tahoma, sans-serif;
+    color:#3f1764
+}
+#restart-button{
+    width: 150px;
+    height: 100px;
+    font-size: 20px;
+    font-family: Tahoma, sans-serif;
+    color:#3f1764
+
+}
+#restart-button:hover {
+    filter: hue-rotate(350deg);
+    font-family: Tahoma, sans-serif;
+    color:#3f1764
+}
+}
