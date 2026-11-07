@@ -1,0 +1,519 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 900px;
+                 background-color: #222222;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }   
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        <script type="text/javascript">
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+                  nodes = new vis.DataSet([
+                    {"color": "#97c2fc", "font": {"color": "white"}, "id": "Colorzip", "image": "icons/colorzip.png", "label": "Colorzip", "shape": "image", "size": 45}, 
+                    {"color": "#97c2fc", "font": {"color": "white"}, "id": "Mycil", "image": "icons/mycil.png", "label": "Mycil", "shape": "image", "size": 45}, 
+                    {"color": "#97c2fc", "font": {"color": "white"}, "id": "Siouxwu", "image": "icons/siouxwu.png", "label": "Siouxwu", "shape": "image", "size": 45}, 
+                    {"color": "#97c2fc", "font": {"color": "white"}, "id": "Anglais", "image": "icons/anglais.png", "label": "Anglais", "shape": "image", "size": 45}, 
+                    {"color": "#97c2fc", "font": {"color": "white"}, "id": "Sandy", "image": "icons/sandy.png", "label": "Sandy", "shape": "image", "size": 45}, 
+                    {"color": "#97c2fc", "font": {"color": "white"}, "id": "Johnny", "image": "icons/johnny.png", "label": "Johnny", "shape": "image", "size": 45}, 
+                    {"color": "#97c2fc", "font": {"color": "white"}, "id": "Mazy", "image": "icons/mazy.png", "label": "Mazy", "shape": "image", "size": 45}, 
+                    {"color": "#97c2fc", "font": {"color": "white"}, "id": "Mika", "image": "icons/mika.png", "label": "Mika", "shape": "image", "size": 45}, 
+                    {"color": "#97c2fc", "font": {"color": "white"}, "id": "Harley", "image": "icons/harley.png", "label": "Harley", "shape": "image", "size": 45}, 
+                    {"color": "#97c2fc", "font": {"color": "white"}, "id": "Jacks", "image": "icons/jacks.png", "label": "Jacks", "shape": "image", "size": 45}, 
+                    {"color": "#97c2fc", "font": {"color": "white"}, "id": "Maybell", "image": "icons/maybell.png", "label": "Maybell", "shape": "image", "size": 45}, 
+                    {"color": "#97c2fc", "font": {"color": "white"}, "id": "Smear", "image": "icons/smear.png", "label": "Smear", "shape": "image", "size": 45}, 
+                    {"color": "#97c2fc", "font": {"color": "white"}, "id": "Duskstep", "image": "icons/duskstep.png", "label": "Duskstep", "shape": "image", "size": 45}, 
+                    {"color": "#97c2fc", "font": {"color": "white"}, "id": "Hex", "image": "icons/hex.png", "label": "Hex", "shape": "image", "size": 45}, 
+                    {"color": "#97c2fc", "font": {"color": "white"}, "id": "Honeydew", "image": "icons/honeydew.png", "label": "Honeydew", "shape": "image", "size": 45}, 
+                    {"color": "#97c2fc", "font": {"color": "white"}, "id": "Whispersong", "image": "icons/whispersong.png", "label": "Whispersong", "shape": "image", "size": 45}, 
+                    {"color": "#97c2fc", "font": {"color": "white"}, "id": "Max", "image": "icons/mittens.png", "label": "Max", "shape": "image", "size": 45}, 
+                    {"color": "#97c2fc", "font": {"color": "white"}, "id": "Mintie", "image": "icons/mintie.png", "label": "Mintie", "shape": "image", "size": 45}, 
+                    {"color": "#97c2fc", "font": {"color": "white"}, "id": "Ecosia", "image": "icons/ecosia.png", "label": "Ecosia", "shape": "image", "size": 45}, 
+                    {"color": "#97c2fc", "font": {"color": "white"}, "id": "Evosia", "image": "icons/evosia.png", "label": "Evosia", "shape": "image", "size": 45}, 
+                    {"color": "#97c2fc", "font": {"color": "white"}, "id": "Celise", "image": "icons/celise.png", "label": "Celise", "shape": "image", "size": 45}, 
+                    {"color": "#97c2fc", "font": {"color": "white"}, "id": "Damore", "image": "icons/damore.png", "label": "Damore", "shape": "image", "size": 45}, 
+                    {"color": "#97c2fc", "font": {"color": "white"}, "id": "Calie", "image": "icons/calie.png", "label": "Calie", "shape": "image", "size": 45}, 
+                    {"color": "#97c2fc", "font": {"color": "white"}, "id": "Esme", "image": "icons/esme.png", "label": "Esme", "shape": "image", "size": 45}, 
+                    {"color": "#97c2fc", "font": {"color": "white"}, "id": "Miyoni", "image": "icons/miyoni.png", "label": "Miyoni", "shape": "image", "size": 45}, 
+                    {"color": "#97c2fc", "font": {"color": "white"}, "id": "Hazelmist", "image": "icons/hazelmist.png", "label": "Hazelmist", "shape": "image", "size": 45}, 
+                    {"color": "#97c2fc", "font": {"color": "white"}, "id": "Embertail", "image": "icons/embertail.png", "label": "Embertail", "shape": "image", "size": 45}, 
+                    {"color": "#97c2fc", "font": {"color": "white"}, "id": "Lightning", "image": "icons/lightning.png", "label": "Lightning", "shape": "image", "size": 45}, 
+                    {"color": "#97c2fc", "font": {"color": "white"}, "id": "Qiztote", "image": "icons/qiztote.png", "label": "Qiztote", "shape": "image", "size": 45}]);
+                  
+                  edges = new vis.DataSet([{"color": "#dc92f7", "from": "Colorzip", "to": "Mycil", "width": 3}, 
+                  {"color": "#dc92f7", "from": "Colorzip", "to": "Siouxwu", "width": 3}, 
+                  {"color": "#dc92f7", "from": "Colorzip", "to": "Anglais", "width": 3}, 
+                  {"color": "#dc92f7", "from": "Colorzip", "to": "Sandy", "width": 3}, 
+                  {"color": "#dc92f7", "from": "Colorzip", "to": "Johnny", "width": 3}, 
+                  {"color": "#dc92f7", "from": "Colorzip", "to": "Mazy", "width": 3}, 
+                  {"color": "#dc92f7", "from": "Colorzip", "to": "Mika", "width": 3}, 
+                  {"color": "#dc92f7", "from": "Colorzip", "to": "Harley", "width": 3}, 
+                  {"color": "#dc92f7", "from": "Colorzip", "to": "Jacks", "width": 3}, 
+                  {"color": "#dc92f7", "from": "Colorzip", "to": "Maybell", "width": 3}, 
+                  {"color": "#dc92f7", "from": "Mycil", "to": "Siouxwu", "width": 3}, 
+                  {"color": "#dc92f7", "from": "Mycil", "to": "Smear", "width": 3}, 
+                  {"color": "#dc92f7", "from": "Mycil", "to": "Anglais", "width": 3}, 
+                  {"color": "#dc92f7", "from": "Mycil", "to": "Duskstep", "width": 3}, 
+                  {"color": "#dc92f7", "from": "Mycil", "to": "Hex", "width": 3}, 
+                  {"color": "#dc92f7", "from": "Mycil", "to": "Honeydew", "width": 3}, 
+                  {"color": "#dc92f7", "from": "Johnny", "to": "Whispersong", "width": 3}, 
+                  {"color": "#dc92f7", "from": "Johnny", "to": "Mazy", "width": 3}, 
+                  {"color": "#dc92f7", "from": "Johnny", "to": "Mika", "width": 3}, 
+                  {"color": "#dc92f7", "from": "Johnny", "to": "Harley", "width": 3}, 
+                  {"color": "#dc92f7", "from": "Johnny", "to": "Maybell", "width": 3}, 
+                  {"color": "#dc92f7", "from": "Mazy", "to": "Mika", "width": 3}, 
+                  {"color": "#dc92f7", "from": "Mazy", "to": "Harley", "width": 3}, 
+                  {"color": "#dc92f7", "from": "Mazy", "to": "Jacks", "width": 3}, 
+                  {"color": "#dc92f7", "from": "Mika", "to": "Whispersong", "width": 3}, 
+                  {"color": "#dc92f7", "from": "Mika", "to": "Jacks", "width": 3}, 
+                  {"color": "#dc92f7", "from": "Mika", "to": "Harley", "width": 3}, 
+                  {"color": "#dc92f7", "from": "Mika", "to": "Max", "width": 3}, 
+                  {"color": "#dc92f7", "from": "Mika", "to": "Maybell", "width": 3}, 
+                  {"color": "#dc92f7", "from": "Harley", "to": "Jacks", "width": 3}, 
+                  {"color": "#dc92f7", "from": "Harley", "to": "Max", "width": 3}, 
+                  {"color": "#dc92f7", "from": "Jacks", "to": "Max", "width": 3}, 
+                  {"color": "#dc92f7", "from": "Smear", "to": "Duskstep", "width": 3}, 
+                  {"color": "#dc92f7", "from": "Smear", "to": "Mintie", "width": 3}, 
+                  {"color": "#dc92f7", "from": "Duskstep", "to": "Mintie", "width": 3}, 
+                  {"color": "#dc92f7", "from": "Hex", "to": "Honeydew", "width": 3}, 
+                  {"color": "#dc92f7", "from": "Ecosia", "to": "Evosia", "width": 3}, 
+                  {"color": "#dc92f7", "from": "Celise", "to": "Damore", "width": 3}, 
+                  {"color": "#dc92f7", "from": "Calie", "to": "Esme", "width": 3}, 
+                  {"color": "#dc92f7", "from": "Calie", "to": "Miyoni", "width": 3}, 
+                  {"color": "#dc92f7", "from": "Esme", "to": "Miyoni", "width": 3}, 
+                  {"color": "#dc92f7", "from": "Whispersong", "to": "Hazelmist", "width": 3}, 
+                  {"color": "#dc92f7", "from": "Whispersong", "to": "Embertail", "width": 3}, 
+                  {"color": "#dc92f7", "from": "Hazelmist", "to": "Embertail", "width": 3}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  data = {nodes: nodes, edges: edges};
+                  var options = {"physics": {"barnesHut": {"gravitationalConstant": -2000, "centralGravity": 0.3, "springLength": 180, "springConstant": 0.05, "damping": 0.3}, "minVelocity": 0.75, "stabilization": {"iterations": 300}}, "nodes": {"physics": true}};
+
+
+                  network = new vis.Network(container, data, options);
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+            </script>
+        
+<div style="position:absolute; top:100px; left:20px; z-index:999;">
+  <button onclick="showFullMap()" style="padding:16px; font-size:16px; background-color:#be2170; color:white; border:none; border-radius:4px; cursor:pointer;">
+    Show Full Map
+  </button>
+</div>
+<div style="position:absolute; top:20px; left:20px; z-index:999;">
+    <button onclick="window.location.href='../fun.html'" style="padding:16px; font-size:16px; background-color:#be2170; color:white; border:none; border-radius:4px; cursor:pointer;">
+    Back to Galaxy Ocelot
+  </button>
+</div>
+
+<div id="infoPanel" style="
+    position:absolute;
+    bottom:10px;     
+    right:10px;       
+    z-index:999;
+    background-color:#464646;
+    color:white;
+    padding:10px;
+    border-radius:5px;
+    width:250px;
+    max-height:300px;
+    overflow:auto;
+    overflow-y: auto;  
+    font-family:Verdana, sans-serif;
+    display:none;"></div>
+<script>
+const relationships = {
+    "Colorzip": [
+        { name: "Mycil", type: "Fursona Trio" },
+        { name: "Siouxwu", type: "Fursona Trio" },
+        { name: "Johnny", type: "Son" },
+        { name: "Mazy", type: "Daughter" },
+        { name: "Maybell", type: "Cousin" },
+        { name: "Jacks", type: "Nephew" },
+        { name: "Mika", type: "Neice" },
+        { name: "Harley", type: "Neice" },
+        { name: "Anglais", type: "..." },
+        { name: "Sandy", type: "Sister" },
+    ],
+    "Siouxwu": [
+        { name: "Mycil", type: "Fursona Trio" },
+        { name: "ColorZip", type: "Fursona Trio" },
+    ],
+    "Duskstep": [
+        { name: "Mycil", type: "Cousin" },
+        { name: "Mintie", type: "Crush" },
+        { name: "Smear", type: "Brother" },
+    ],
+    "Mycil": [
+        { name: "Colorzip", type: "Fursona Trio" },
+        { name: "Siouxwu", type: "Fursona Trio" },
+        { name: "Smear", type: "Cousin" },
+        { name: "Duskstep", type: "Cousin" },
+        { name: "Hex", type: "(:" },
+        { name: "Honeydew", type: "Friend" },
+        { name: "Anglais", type: "..." },
+    ],
+    "Smear": [
+        { name: "Mintie", type: "Friend" },
+        { name: "Duskstep", type: "Brother" },
+        { name: "Mycil", type: "Cousin" },
+    ],
+    "Mintie": [
+        { name: "Smear", type: "Friend" },
+        { name: "Duskstep", type: "Friend?" },
+    ],
+    "Hex": [
+        { name: "Mycil", type: "..." },
+        { name: "Honeydew", type: "Summoner" },
+    ],
+    "Honeydew": [
+        { name: "Hex", type: "Summoning victim" },
+        { name: "Mycil", type: "Friend" },
+    ],
+    "Lightning": [],
+    "Qiztote": [],
+    "Ecosia": [
+        { name: "Evosia", type: "Future" },
+    ],
+    "Evosia": [
+        { name: "Ecosia", type: "Past" },
+    ],
+    "Anglais": [
+        { name: "Colorzip", type: "..." },
+        { name: "Mycil", type: "..." },
+    ],
+    "Celise": [
+        { name: "Damore", type: "Girlfriend" },
+    ],
+     "Damore": [
+        { name: "Celise", type: "Girlfriend" },
+    ],
+     "Calie": [
+        { name: "Esme", type: "Sister" },
+        { name: "Miyoni", type: "Friend" },
+    ],
+    "Esme": [
+        { name: "Calie", type: "Sister" },
+        { name: "Miyoni", type: "Friend" },
+    ],
+    "Miyoni": [
+        { name: "Calie", type: "Friend" },
+        { name: "Esme", type: "Friend" },
+    ],
+    "Whispersong": [
+        { name: "Mika", type: "Frienemy" },
+        { name: "Johnny", type: "Enemy" },
+        { name: "Embertail", type: "Friend" },
+        { name: "Hazelmist", type: "Friend" },
+    ],
+    "Hazelmist": [
+        { name: "Whispersong", type: "Friend" },
+        { name: "Embertail", type: "Friend" },
+    ],
+    "Embertail": [
+        { name: "Hazelmist", type: "Friend" },
+        { name: "Whispersong", type: "Friend" },
+    ],
+    "Johnny": [
+        { name: "Colorzip", type: "Mother" },
+        { name: "Mazy", type: "Sister" },
+        { name: "Whispersong", type: "Enemy" },
+        { name: "Mika", type: "Cousin" },
+        { name: "Harley", type: "Cousin" },
+        { name: "Maybell", type: "Cousin" },
+    ],
+    "Mazy": [
+        { name: "Colorzip", type: "Mother" },
+        { name: "Johnny", type: "Brother" },
+        { name: "Jacks", type: "Brother" },
+        { name: "Mika", type: "Cousin" },
+        { name: "Harley", type: "Cousin" },
+    ],
+    "Jacks": [
+        { name: "Colorzip", type: "Aunt" },
+        { name: "Mazy", type: "Sister" },
+        { name: "Mika", type: "Sister" },
+        { name: "Harley", type: "Sister" },
+        { name: "Max", type: "Acquaintance" },
+    ],
+    "Mika": [
+        { name: "Harley", type: "Sister" },
+        { name: "Colorzip", type: "Aunt" },
+        { name: "Mazy", type: "Cousin" },
+        { name: "Jacks", type: "Brother" },
+        { name: "Whispersong", type: "Frienemy" },
+        { name: "Johnny", type: "Cousin" },
+        { name: "Max", type: "Enemy" },
+        { name: "Maybell", type: "Cousin" },
+    ],
+    "Harley": [
+        { name: "Mika", type: "Sister" },
+        { name: "Colorzip", type: "Aunt" },
+        { name: "Max", type: "Enemy" },
+        { name: "Mazy", type: "Cousin" },
+        { name: "Johnny", type: "Cousin" },
+        { name: "Jacks", type: "Brother (Enemy)" },
+    ],
+    "Sandy": [
+        { name: "Colorzip", type: "Sister" },
+    ],
+    "Max": [
+        { name: "Jacks", type: "Acquaintance" },
+        { name: "Mika", type: "Enemy" },
+        { name: "Harley", type: "Enemy" },
+    ],
+    "Maybell": [
+        { name: "Colorzip", type: "Cousin" },
+        { name: "Johnny", type: "Cousin" },
+        { name: "Mika", type: "Cousin" },
+    ],
+ 
+};
+</script>
+<script>
+network.on("click", function(params) {
+  if(params.nodes.length === 0) return;
+
+  let selected = params.nodes[0];
+  let connected = network.getConnectedNodes(selected);
+  connected.push(selected);
+
+  
+  network.body.data.nodes.get().forEach(n => {
+    network.body.data.nodes.update({id:n.id, hidden: !connected.includes(n.id)});
+  });
+
+  network.body.data.edges.get().forEach(e => {
+    let fromSelected = e.from === selected;
+    let toSelected = e.to === selected;
+    network.body.data.edges.update({id:e.id, hidden: !(fromSelected || toSelected)});
+  });
+
+  
+  const panel = document.getElementById("infoPanel");
+  const rels = relationships[selected] || [];
+  if (rels.length === 0) {
+    panel.innerHTML = "<b>" + selected + "</b><br>No listed connections.";
+  } else {
+    let html = "<b>" + selected + "</b><br><ul>";
+    rels.forEach(r => {
+      html += "<li><b>" + r.name + "</b>: " + r.type + "</li>";
+    });
+    html += "</ul>";
+    panel.innerHTML = html;
+  }
+  panel.style.display = "block"; 
+});
+</script>
+<script>
+
+window.addEventListener("load", function() {
+
+    network.setOptions({
+
+         nodes: {
+            font: {
+                size: 22,
+                face: "Inter",
+                color: "#ffffff",
+                strokeWidth: 2,
+                strokeColor: "#000000"
+            },
+        },
+
+         physics:{
+            enabled: true,
+            barnesHut: {
+                gravitationalConstant: -2000,
+                centralGravity: 0.2,
+                springLength: 150,
+                springConstant: 0.04,
+                damping: 0.4,
+                avoidOverlap: 0.75},
+
+            stabilization: {
+                enabled: true,
+                iterations: 150
+            },
+        },
+
+        interaction: {
+            dragNodes: true,
+            dragView: true,
+            zoomView: true,
+        },
+
+    });
+});
+
+
+</script>
+<script>
+function showFullMap() {
+
+  network.body.data.nodes.get().forEach(n => network.body.data.nodes.update({id:n.id, hidden:false}));
+  network.body.data.edges.get().forEach(e => network.body.data.edges.update({id:e.id, hidden:false}));
+}
+
+network.on("click", function(params) {
+  if(params.nodes.length === 0) return;
+
+  let selected = params.nodes[0];
+  let connected = network.getConnectedNodes(selected);
+  connected.push(selected);
+
+
+  network.body.data.nodes.get().forEach(n => {
+    network.body.data.nodes.update({id:n.id, hidden: !connected.includes(n.id)});
+  });
+
+  
+  network.body.data.edges.get().forEach(e => {
+    let fromSelected = e.from === selected;
+    let toSelected = e.to === selected;
+    network.body.data.edges.update({id:e.id, hidden: !(fromSelected || toSelected)});
+  });
+});
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+<style>
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    background: linear-gradient(
+        180deg,
+        #69227a,
+        #4e2674,
+        #33298f
+    );
+
+    font-family: 'Inter', sans-serif;
+    font-size: 24px;
+    color: white;
+}
+
+h1 {
+    font-size: 36px;
+    font-weight: 800;
+}
+
+</style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<style>
+
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+
+#mynetwork {
+    width: 100vw;
+    height: 100vh;
+
+    background: transparent;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+
+.vis-network {
+    background: transparent;
+}
+
+
+body {
+    position: fixed;
+}
+
+</style>
+<script>
+
+if (window.innerWidth < 700) {
+
+    network.body.data.nodes.update(
+        network.body.data.nodes.get().map(n => ({
+            id: n.id,
+            size: 60
+        }))
+    );
+
+}
+
+</script>
+</div>
+</body>
+</html>
