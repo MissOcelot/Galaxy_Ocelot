@@ -3,7 +3,7 @@ const scriptUrl = document.currentScript.src;
 const scriptFolder = new URL(".", scriptUrl);
 const clickSound = new Audio(
     new URL("clickk.mp3", scriptFolder).href
-);
+); 
 
 document.addEventListener("click", function(event) {
     const clickable = event.target.closest(

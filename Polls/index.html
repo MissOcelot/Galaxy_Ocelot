@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Polls</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="header-container">
+        <nav>
+            <a href="../home/index.html" class="image-button">
+                <img src="../home/homeicon.png" width="150px" height="75px" alt="Home">
+            </a>
+            <a href="../games/games.html" class="text-button">Games</a>
+            <a href="../fun stuff/fun.html" class="text-button">Fun Stuff</a>
+            <a href="../videos/videos.html" class="text-button">Videos</a>
+            <a href="music.html" class="text-button">Music</a>
+            <a href="quizzes/index.html" class="text-button">Quizzes</a>
+            <a href="../Research portfolio/index.html" class="text-button">Research Portfolio</a>
+            <a href="archive.html" class="text-button">Archive Sites</a>
+            <a href="../about/about.html" class="text-button">About</a>
+        </nav>
+        </div>
+    </header>
+    <audio id="background-music" loop><source src="../home/lotus.mp3" type="audio/mpeg"></audio>
+    <button id="music-toggle" type="button"> <img id="music-icon" src="../home/musicon.png"> </button>
+
+    <main>
+    <section id="poll">
+        <div id="results">
+
+        </div>
+        <form id="poll-form">
+        <div class="poll-layout">
+        <div class="question-picture">
+        <img src="pink.png" alt="I play Animal Jam everyday!">
+        </div>
+        <div class="content">
+    <div class="qtext">
+        <h2>What should this character's name be?</h2>
+        </div>
+       
+
+    <div class="choose">
+        <label class="poll-option">
+            <input type="radio" name="chname" value="Azara" required>
+            <img src="../Research portfolio/purple.png" alt="">
+            <span>Azara</span>
+             
+        </label>
+        <label class="poll-option">
+            <input type="radio" name="chname" value="Inferno" required>
+            <img src="../Research portfolio/purple.png" alt="">
+            <span>Inferno</span>
+            
+        </label>
+        <label class="poll-option">
+            <input type="radio" name="chname" value="Blaze" required>
+            <img src="../Research portfolio/purple.png" alt="">
+            <span>Blaze</span>
+            
+        </label>
+        <label class="poll-option">
+            <input type="radio" name="chname" value="Scorch" required>
+            <img src="../Research portfolio/purple.png" alt="">
+            <span>Scorch</span>
+            
+        </label>
+        </div>
+        </div>
+        </div>
+        
+</div>
+</div>
+         <button type="submit">Submit</button>
+
+        </form>
+<div id="results">
+
+        </div>
+        
+    </section>
+    </main>
+        
+    
+
+<script src="../home/music.js"></script>
+<script src="../home/click.js"></script>
+<script src="jspoll.js"></script>
+</body>
+</html>

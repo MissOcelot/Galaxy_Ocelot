@@ -2,7 +2,7 @@ body {
   background-image: linear-gradient(to bottom, rgb(221, 154, 235), rgb(180, 112, 224));
 }
 
-
+ 
 p {
   color: rgb(0, 0, 0);
   margin-left: 20px;
@@ -77,4 +77,29 @@ button {
 button:hover {
   background-color: #5d2591;
   color: rgb(255, 255, 255);
+} 
+
+#music-toggle {
+    border: none;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+    box-shadow: none;
+    position: fixed;
+    bottom: 15px;
+    right: 25px;
+    z-index: 1000;
 }
+
+#music-toggle img {
+    width: 90px;
+    height: 90px;
+    background: transparent;
+    box-shadow: none;
+}
+
+#music-toggle:hover img {
+    filter: brightness(0.9);
+}
+
+

@@ -135,6 +135,68 @@ button:hover {
   color: rgb(255, 255, 255);
 }
 
+#music-toggle {
+    border: none;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+    box-shadow: none;
+    position: fixed;
+    bottom: 15px;
+    right: 25px;
+    z-index: 1000;
+}
+
+#music-toggle img {
+    width: 90px;
+    height: 90px;
+    background: transparent;
+    box-shadow: none;
+}
+
+#music-toggle:hover img {
+    filter: brightness(0.9);
+}
+
+.game-box {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 25px;
+    width: 90%;
+    max-width: 1000px;
+    margin: 20px auto;
+}
+
+.game-box .game-card {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    gap: 10px;
+    text-align: center;
+}
+
+.game-box .game-card img {
+    width: 65%;
+    height: auto;
+    object-fit: cover;
+    aspect-ratio: 6/7;
+}
+
+.game-box .game-info {
+    width: 100%;
+}
+
+.game-box .game-info h2 {
+    margin: 5px 0;
+}
+
+.game-box .game-info p {
+    margin: 5px 0;
+}
+
+
 @media (max-width: 600px) {
     .game-card {
         flex-direction: column;
@@ -161,4 +223,8 @@ button:hover {
     .game-info p {
         margin-left: 0;
     }
+    .game-box {
+    grid-template-columns: 1fr;
+    width: 90%;
+}
 }

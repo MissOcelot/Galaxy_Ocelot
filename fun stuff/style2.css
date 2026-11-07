@@ -1,0 +1,661 @@
+body {
+  background-image: linear-gradient(to bottom, rgb(250, 174, 244), rgb(225, 128, 238));
+}
+h2 {
+  color: rgb(0, 0, 0);
+  margin-left: 20px;
+  text-decoration: none;
+  font-family: "Sans serif", "Tahoma", monospace;
+  text-align: center;
+}
+.header-container {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.header-container nav {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 8px;
+  width: max-content;
+  min-width: 100%;
+}
+a.text-button {
+  flex-shrink: 0;
+  display: inline-block;
+  border: 1px solid;
+  border-radius: 12px;
+  border-color: #3f1764;
+  background-color: #6921ad;
+  padding: 10px;
+  text-decoration: none;
+  font-size: 16px;
+  font-family: "Sans serif", "Tahoma", monospace;
+  color: rgb(245, 219, 243);
+  box-shadow: 0 4px 6px 0 rgb(57, 17, 95);
+}
+
+a.text-button:hover {
+  background-color: #5d2591;
+  color: rgb(255, 255, 255);
+}
+
+a.image-button {
+  display: block;
+  flex-shrink: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  line-height: 0;
+}
+
+a.image-button img {
+  display: block;
+  width: 150px;
+  height: 75px;
+  object-fit: contain;
+}
+
+a.button2:hover {
+  filter: brightness(0.8);
+  box-shadow: 0 4px 6px 0 rgb(105, 31, 139);
+}
+#music-toggle {
+    border: none;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+    box-shadow: none;
+    position: fixed;
+    bottom: 15px;
+    right: 25px;
+    z-index: 1000;
+}
+
+#music-toggle img {
+    width: 90px;
+    height: 90px;
+    background: transparent;
+    box-shadow: none;
+}
+
+#music-toggle:hover img {
+    filter: brightness(0.9);
+}
+#options {
+    width: 100%;
+    min-height: 35vh;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    gap: 8px;
+    max-width: 800px;
+    row-gap: 0px;}
+    
+#results-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    gap: 8px;
+    order: -1;
+}
+
+#result-heading {
+    width: 100%;
+    text-align: center;
+    margin: 5px 0;
+    color: rgb(0, 0, 0);
+}
+
+#options button {
+    width: 250px;
+    height: 200px;
+    background-image: url("buttonpick.png");
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    padding: 0;
+    margin:0;
+    font-size: 30px;
+    font-weight: bold;
+    -webkit-text-stroke: 1px #5d2591;
+    font-family: Tahoma, sans-serif;
+    color:rgb(245, 219, 243);
+}
+
+#options button:hover {
+    -webkit-text-stroke: 1px #3f1764;
+    font-family: Tahoma, sans-serif;
+    color: rgb(255, 255, 255);
+    filter: hue-rotate(350deg);
+}
+
+#options p {
+    color: rgb(0, 0, 0);
+    font-family: Tahoma, sans-serif;
+    font-weight: bold;
+}
+
+#restart{
+    display: flex;
+    justify-content: center;
+    margin-top: 1px;
+}
+#restart-button{
+    width: 200px;
+    height: 150px;
+    background-image: url("buttonpick.png");
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    padding: 0;
+    font-size: 24px;
+    font-weight: bold;
+    -webkit-text-stroke: 1px #5d2591;
+    font-family: Tahoma, sans-serif;
+    color:rgb(245, 219, 243);
+
+}
+#restart-button:hover {
+    filter: hue-rotate(350deg);
+    -webkit-text-stroke: 1px #3f1764;
+    font-family: Tahoma, sans-serif;
+    color: rgb(255, 255, 255);
+}
+
+#characterpicker {
+    width: 100%;
+    min-height: 65vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 2px;
+}
+
+#results {
+    width: 300px;
+    height: 250px;
+    margin: 5px;
+    flex: 0 0 300px;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color:rgb(193, 99, 212);
+    background-size: cover;
+    background-position: center;
+    border: 3px solid #5d2591;
+    border-radius: 15px;
+    color:rgb(193, 99, 212);
+    font-size: 24px;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    
+}
+
+#options:has(#results) {
+    min-height: 45vh;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    display:flex;
+}
+
+#results.lennie::after {
+    content: "";
+    position: absolute;
+    width: 225px;
+    height: 200px;
+    background-image: url("characters/ph.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    bottom: 5px;
+}
+#results.sunny::after {
+    content: "";
+    position: absolute;
+    width: 225px;
+    height: 200px;
+    background-image: url("characters/sunny.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    bottom: 5px;
+}
+#results.rainy::after {
+    content: "";
+    position: absolute;
+    width: 225px;
+    height: 200px;
+    background-image: url("characters/rainy.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    bottom: 5px;
+}
+#results.azara::after {
+    content: "";
+    position: absolute;
+    width: 225px;
+    height: 200px;
+    background-image: url("characters/ph.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    bottom: 5px;
+}
+#results.anglais::after {
+    content: "";
+    position: absolute;
+    width: 225px;
+    height: 200px;
+    background-image: url("characters/anglais.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    bottom: 5px;
+}
+#results.calie::after {
+    content: "";
+    position: absolute;
+    width: 225px;
+    height: 200px;
+    background-image: url("characters/calie.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    bottom: 5px;
+}
+#results.celise::after {
+    content: "";
+    position: absolute;
+    width: 225px;
+    height: 200px;
+    background-image: url("characters/celise.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    bottom: 5px;
+}
+#results.chaske::after {
+    content: "";
+    position: absolute;
+    width: 225px;
+    height: 200px;
+    background-image: url("characters/chaske.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    bottom: 5px;
+}
+
+#results.chaske::after {
+    content: "";
+    position: absolute;
+    width: 225px;
+    height: 200px;
+    background-image: url("characters/chaske.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    bottom: 5px;
+}
+
+#results.colorzip::after {
+    content: "";
+    position: absolute;
+    width: 225px;
+    height: 200px;
+    background-image: url("characters/colorzip.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    bottom: 5px;
+}
+
+#results.mycil::after {
+    content: "";
+    position: absolute;
+    width: 225px;
+    height: 200px;
+    background-image: url("characters/mycil.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    bottom: 5px;
+}
+
+#results.siouxwu::after {
+    content: "";
+    position: absolute;
+    width: 225px;
+    height: 200px;
+    background-image: url("characters/siouxwu.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    bottom: 5px;
+}
+
+#results.hex::after {
+    content: "";
+    position: absolute;
+    width: 225px;
+    height: 200px;
+    background-image: url("characters/hex.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    bottom: 5px;
+}
+#results.mintie::after {
+    content: "";
+    position: absolute;
+    width: 225px;
+    height: 200px;
+    background-image: url("characters/mintie.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    bottom: 5px;
+}
+#results.duskstep::after {
+    content: "";
+    position: absolute;
+    width: 225px;
+    height: 200px;
+    background-image: url("characters/duskstep.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    bottom: 5px;
+}
+#results.smear::after {
+    content: "";
+    position: absolute;
+    width: 225px;
+    height: 200px;
+    background-image: url("characters/smear.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    bottom: 5px;
+}
+#results.esme::after {
+    content: "";
+    position: absolute;
+    width: 225px;
+    height: 200px;
+    background-image: url("characters/esme.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    bottom: 5px;
+}
+
+#results.miyoni::after {
+    content: "";
+    position: absolute;
+    width: 225px;
+    height: 200px;
+    background-image: url("characters/miyoni.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    bottom: 5px;
+}
+
+#results.ecosia::after {
+    content: "";
+    position: absolute;
+    width: 225px;
+    height: 200px;
+    background-image: url("characters/ecosia.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    bottom: 5px;
+}
+
+#results.evosia::after {
+    content: "";
+    position: absolute;
+    width: 225px;
+    height: 200px;
+    background-image: url("characters/evosia.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    bottom: 5px;
+}
+
+#results.qiztote::after {
+    content: "";
+    position: absolute;
+    width: 225px;
+    height: 200px;
+    background-image: url("characters/quiztote.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    bottom: 5px;
+}
+#results.jax::after {
+    content: "";
+    position: absolute;
+    width: 225px;
+    height: 200px;
+    background-image: url("characters/jax.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    bottom: 5px;
+}
+#results.johnny::after {
+    content: "";
+    position: absolute;
+    width: 225px;
+    height: 200px;
+    background-image: url("characters/johnny.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    bottom: 5px;
+}
+#results.mazy::after {
+    content: "";
+    position: absolute;
+    width: 225px;
+    height: 200px;
+    background-image: url("characters/mazy.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    bottom: 5px;
+}
+#results.max::after {
+    content: "";
+    position: absolute;
+    width: 225px;
+    height: 200px;
+    background-image: url("characters/max.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    bottom: 5px;
+}
+#results.maybell::after {
+    content: "";
+    position: absolute;
+    width: 225px;
+    height: 200px;
+    background-image: url("characters/maybell.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    bottom: 5px;
+}
+#results.sandy::after {
+    content: "";
+    position: absolute;
+    width: 225px;
+    height: 200px;
+    background-image: url("characters/sandy.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    bottom: 5px;
+}
+#results.mika::after {
+    content: "";
+    position: absolute;
+    width: 225px;
+    height: 200px;
+    background-image: url("characters/mika.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    bottom: 5px;
+}
+#results.harley::after {
+    content: "";
+    position: absolute;
+    width: 225px;
+    height: 200px;
+    background-image: url("characters/harley.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    bottom: 5px;
+}
+#results.kaliau::after {
+    content: "";
+    position: absolute;
+    width: 225px;
+    height: 200px;
+    background-image: url("characters/kaliau.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    bottom: 5px;
+}
+#results.yukichas::after {
+    content: "";
+    position: absolute;
+    width: 225px;
+    height: 200px;
+    background-image: url("characters/yukichas.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    bottom: 5px;
+}
+#results.damore::after {
+    content: "";
+    position: absolute;
+    width: 225px;
+    height: 200px;
+    background-image: url("characters/damore.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    bottom: 5px;
+}
+#results.kavik::after {
+    content: "";
+    position: absolute;
+    width: 225px;
+    height: 200px;
+    background-image: url("characters/kavik.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    bottom: 5px;
+}
+#results.honeydew::after {
+    content: "";
+    position: absolute;
+    width: 225px;
+    height: 200px;
+    background-image: url("characters/honeydew.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    bottom: 5px;
+}
+#results.yukichas::after {
+    content: "";
+    position: absolute;
+    width: 225px;
+    height: 200px;
+    background-image: url("characters/yukichas.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    bottom: 5px;
+}
+#results.hazelmist::after {
+    content: "";
+    position: absolute;
+    width: 225px;
+    height: 200px;
+    background-image: url("characters/hazelmist.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    bottom: 5px;
+}
+#results.embertail::after {
+    content: "";
+    position: absolute;
+    width: 225px;
+    height: 200px;
+    background-image: url("characters/embertail.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    bottom: 5px;
+}
+#results.whispersong::after {
+    content: "";
+    position: absolute;
+    width: 225px;
+    height: 200px;
+    background-image: url("characters/whispersong.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    bottom: 5px;
+}
+#results.lightning::after {
+    content: "";
+    position: absolute;
+    width: 225px;
+    height: 200px;
+    background-image: url("characters/lightning.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    bottom: 5px;
+}
+@media (max-width: 600px) {}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Character Picker</title>
+
+    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="https://pyscript.net/releases/2026.7.3/core.css">
+<script type="module" src="https://pyscript.net/releases/2026.7.3/core.js"></script>
+
+</head>
+
+<body>
+
+    <header>
+        <div class="header-container">
+        <nav>
+            <a href="../home/index.html" class="image-button">
+                <img src="har.png" width="150px" height="75px" alt="Home">
+            </a>
+            <a href="fun.html" class="text-button">Back to Fun Stuff</a>
+        </nav>
+        </div>
+    </header>
+<audio id="background-music" loop><source src="../home/lotus.mp3" type="audio/mpeg"></audio>
+    <button id="music-toggle" type="button"> <img id="music-icon" src="../home/musicon.png"> </button>
+    <main>
+<h2>Choose from..</h2>
+<div id="characterpicker">
+
+    <div id="options">
+        Loading...
+    </div>
+
+    <div id="restart">
+        <button id="restart-button" type="button">
+            Start Over
+        </button>
+    </div>
+
+</div>
+    </main>
+
+    <script type="py" src="./pythonpath.py"></script>
+    <script src="../home/music.js"></script>
+    <script src="../home/click.js"></script>
+
+</body>
+</html>
